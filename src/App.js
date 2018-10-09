@@ -11,26 +11,28 @@ class App extends Component {
  }
  getData() {
   fetch('https://www.googleapis.com/youtube/v3/search?key=AIzaSyCD8nJj05or-n459LxRrR1kgDFabagdvTo&maxResults=5&part=snippet&q=motogp')
-  .then((resp)=>{
-   resp.json()})
-   .then((res)=>{
-   console.log(res);
-   this.setState({data:res.videos})
-   }) 
+  .then(response => response.json())
+  .then(data => {
+    console.log('vaggos', data.items);
+    this.setState({data: data.items});
+  });
  }
   
  componentWillMount() {
   this.getData();
  }
+
   render() {
     return (
       <div> {
        this.state.data ?
        this.state.data.map((item)=>
-       <div>
-        <h3>{item.title}</h3> 
-        <h3>{item.releaseVideo}</h3>
+
+       
+       <div key={item.id.videoId}>
+        kkk
        </div>
+
       )
        :
        <h3>Wait...data is fetching.</h3>
