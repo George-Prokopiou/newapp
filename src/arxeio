@@ -1,0 +1,49 @@
+github
+email: george.prokopiou.andreas@gmail.com
+password: d?=%DqQJO/lt1
+
+Gmail
+email: george.prokopiou.andreas@gmail.com
+password: aSdS0(tUCjJGd*Lu
+
+αν καρτας ανεργιας
+ον.χρηστη  2646267720
+συνθημα    797481565
+
+code --user-data-dir=/tmp
+sudo systemctl restart apache2
+npm start
+
+mysql -u'root' -p'root' -e "DROP DATABASE IF EXISTS testsite; CREATE DATABASE testsite;";
+rsync -r /var/www/html/geo/public_html/ /var/www/html/gio/public_html/
+drush sql-dump > backup.sql    drush sql-query --file=backup.sql
+zcat *.sql.gz | drush sql-cli;
+cat *.sql | drush sql-cli;
+code --user-data-dir=/tmp
+$config['system.site']['name'] = "";
+mysql -u'root' -p'root' -e "CREATE DATABASE gio;";
+mysql -u USERNAME -pPASSWORD  DATABASE_NAME < BACKUPFILE.sql
+drush sql-dump > backupfile.sql
+chown -R www-data:www-data .;
+rsync -r /var/www/html/hello-world/ /var/www/html/hallo-world/
+
+Τρεξε
+git reset --hard 016515f
+και μετά
+git push -f
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+  <div className="collection-item" key={todo.id}>
+         <span onClick={() => {deleteTodo(todo.id)}}>{todo.content}</span>
+       </div>  
+
+<div className="collection-item" key={todo.id}>
+    <p>{todo.content}</p>
+    <button onClick={() => { deleteTodo(todo.id) }}>Delete</button>
+</div>
+sudo npm install -g create-react-app
+create-react-app world
+
