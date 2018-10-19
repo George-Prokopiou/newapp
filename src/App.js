@@ -23,20 +23,24 @@ class App extends Component {
   }
 
   render() {
+    let photos = this.state.data ?
+      this.state.data.map(function (item) {
+        console.log(item)
+        return (
+          <div key={item.id.videoId}>
+            <img src={item.snippet.thumbnails.default.url} alt="" />
+          </div>
+        );
+      })
+      :
+      <p>aaa</p>;
 
 
     return (
-      this.state.data ?
-        this.state.data.map(function (item) {
-          console.log(item)
-          return (
-            <div key={item.id.videoId}>
-              <img src={item.snippet.thumbnails.default.url} alt="" />
-            </div>
-          );
-        })
-        :
-        <p>aaa</p>
+      <div>
+        {photos}
+        <iframe src="" frameborder="0"></iframe>
+      </div>
     );
   }
 }
