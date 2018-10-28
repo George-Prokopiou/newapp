@@ -31,7 +31,7 @@ rsync -r /var/www/html/hello-world/ /var/www/html/hallo-world/
 git reset --hard 016515f
 και μετά
 git push -f
-
+git reset --hard
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -47,3 +47,19 @@ git push -f
 sudo npm install -g create-react-app
 create-react-app world
 
+<iframe src={this.state.iframe_url} width="400" height="400" align="right">
+src={item.right.path.to.propery}
+
+Πρέπει το iframe_url να το βάλεις στο state με setState. Όπως θέτεις τα data στο state.
+Σκέψου πώς μπορεί να γίνει.
+Όταν το iframe_url τεθεί σωστά στο state τότε το iframe θα σου το δείξει το βίντεο.
+
+return (
+
+      <div>
+        {photos}
+        < iframe src={this.state.iframe_url} width="400" height="400" align="right" >
+        </iframe >
+
+      </div >
+    );
