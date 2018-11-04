@@ -1,29 +1,66 @@
-var user1 = {
- firstName: 'James',
- lastName: 'Heywood',
- levelsComplete: [1,2,3],
- fullName: function() {
-   return this.firstName + ' ' + this.lastName;
- },
- startDate: new Date(October 13, 2018) 
-};
+import React, { Component } from 'react';
 
-<iframe width= "120"
-height="90" src="https://yt3.ggpht.com/-DKtSK5AJj2M/AAAAAAAAAAI/AAAAAAAAAAA/3Expi7LdG-k/s88-c-k-no-mo-rj-c0xffffff/photo.jpg">
-</iframe> 
+import SocialVideo from './social-video';
 
-<iframe width= "120"
-height="90" src="https://i.ytimg.com/vi/7A2-nreoKro/default.jpg">
-</iframe>
+var videos = [
+  {
+    service: 'youtube',
+    video: 'https://www.youtube.com/watch?v=XxVg_s8xAms'
+  },
+  {
+    service: 'youtube',
+    video: 'XuZLtMrCOoU'
+  },
+  {
+    service: 'vimeo',
+    video: 'https://vimeo.com/151715092'
+  },
+  {
+    service: 'vimeo',
+    video: '148177148'
+  },
+  {
+    service: 'dailymotion',
+    video: 'http://www.dailymotion.com/video/x3oc771_la-voiture-du-futur_tech'
+  },
+  {
+    service: 'dailymotion',
+    video: 'x3p6f0f_long-story-short-teaser-saison-2_tech'
+  }
+];
 
-<iframe width= "120"
-height="90" src="https://i.ytimg.com/vi/AkzPwc5tuSY/default.jpg">
-</iframe> 
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      videoIndex: 0
+    };
+  }
 
-<iframe width= "120"
-height="90" src="https://i.ytimg.com/vi/MW9Wt9secVA/default.jpg">
-</iframe> 
+  goToVideo(index) {
+    let videoIndex = index;
+    if (videoIndex < 0) {
+      videoIndex = videos.length - 1;
+    } else if (videoIndex >= videos.length) {
+      videoIndex = 0;
+    }
+    this.setState({
+      videoIndex
+    });
+  }
 
-<iframe width= "120"
-height="90" src="https://i.ytimg.com/vi/ehXu9KF-iPs/default.jpg">
-</iframe> 
+  render() {
+    const { service, video } = videos[this.state.videoIndex];
+    return (
+      <div>
+        <SocialVideo service={service} video={video} width={500} height={270} />
+        <p>
+          <span>{service}: </span>
+          <span>{video}</span>
+        </p>
+        <button onClick={this.goToVideo.bind(this, this.state.videoIndex - 1)}>Previous</button>
+        <button onClick={this.goToVideo.bind(this, this.state.videoIndex + 1)}>Next</button>
+      </div>
+    );
+  }
+}
