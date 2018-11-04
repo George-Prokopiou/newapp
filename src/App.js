@@ -28,12 +28,13 @@ class App extends Component {
     this.getData();
   }
   render() {
+    let me = this;
     let photos = <p>Wait...Fetching data.</p>;
     if (this.state.data !== null) {
       console.log('state data is not null')
       photos = this.state.data.map(function (item) {
         return (
-          <div key={item.id.videoId} onClick={() => this.handleClick(item.id.videoId)}>
+          <div key={item.id.videoId} onClick={() => me.handleClick(item.id.videoId)}>
             <img src={item.snippet.thumbnails.default.url} alt="" />
           </div>
         );
