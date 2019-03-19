@@ -1,66 +1,67 @@
 import React, { Component } from 'react';
 
-import SocialVideo from './social-video';
-
-var videos = [
+class App extends Component
+{
+  constructor()
   {
-    service: 'youtube',
-    video: 'https://www.youtube.com/watch?v=XxVg_s8xAms'
-  },
-  {
-    service: 'youtube',
-    video: 'XuZLtMrCOoU'
-  },
-  {
-    service: 'vimeo',
-    video: 'https://vimeo.com/151715092'
-  },
-  {
-    service: 'vimeo',
-    video: '148177148'
-  },
-  {
-    service: 'dailymotion',
-    video: 'http://www.dailymotion.com/video/x3oc771_la-voiture-du-futur_tech'
-  },
-  {
-    service: 'dailymotion',
-    video: 'x3p6f0f_long-story-short-teaser-saison-2_tech'
-  }
-];
-
-export default class App extends Component {
-  constructor(props) {
-    super(props);
+    super();
     this.state = {
-      videoIndex: 0
-    };
-  }
-
-  goToVideo(index) {
-    let videoIndex = index;
-    if (videoIndex < 0) {
-      videoIndex = videos.length - 1;
-    } else if (videoIndex >= videos.length) {
-      videoIndex = 0;
+      data: null,
+      iframe_url: '',
+      theIdFromTheClickHandler: video.right.path.to.videoID
     }
-    this.setState({
-      videoIndex
-    });
   }
 
-  render() {
-    const { service, video } = videos[this.state.videoIndex];
+  handleClick = (videoID) =>
+  {
+    console.log(videoID);
+  }
+
+  getData()
+  {
+    fetch('https://www.googleapis.com/youtube/v3/search?key=AIzaSyCD8nJj05or-n459LxRrR1kgDFabagdvTo&maxResults=5&part=snippet&q=motogp')
+      .then(response => response.json())
+      .then(data =>
+      {
+        this.setState({
+          data: data.items,
+          iframe_url: targetVideo.'https://www.youtube.com/embed/' + data.items[1].id.videoId,
+
+        });
+      });
+  }
+
+  componentDidMount()
+  {
+    this.getData();
+  }
+  render()
+  {
+
+    let me = this;
+    let photos = <p>Wait...Fetching data.</p>;
+    if (this.state.data.filter !== null)
+    {
+      console.log('state data is not null')
+      photos = this.state.data.map.filter(function(item, video)
+      {
+        return (
+          <div key={item.id.videoId} onClick={() => me.handleClick(theIdFromTheClickHandler == 'https://www.youtube.com/embed/' + data.items[1].id.videoId)}>
+
+            <img src={item.snippet.thumbnails.default.url} alt="" />
+          </div>
+        );
+      })
+    }
+
     return (
+
       <div>
-        <SocialVideo service={service} video={video} width={500} height={270} />
-        <p>
-          <span>{service}: </span>
-          <span>{video}</span>
-        </p>
-        <button onClick={this.goToVideo.bind(this, this.state.videoIndex - 1)}>Previous</button>
-        <button onClick={this.goToVideo.bind(this, this.state.videoIndex + 1)}>Next</button>
+        {photos}
+        <iframe src={this.state.iframe_url} width="840" height="630" align="right"> </iframe >
       </div>
     );
   }
 }
+
+export default App;

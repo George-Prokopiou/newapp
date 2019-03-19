@@ -34,18 +34,26 @@ git push -f
 git reset --hard
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+http://localhost/drupal/public_html/
+CM62732254
+
+create-react-app world
 
 
-  <div className="collection-item" key={todo.id}>
+apt update
+apt upgrade
+georprok@gmail.com   7890georprok
+
+
+ <div className="collection-item" key={todo.id}>
          <span onClick={() => {deleteTodo(todo.id)}}>{todo.content}</span>
-       </div>  
+       </div>
 
 <div className="collection-item" key={todo.id}>
     <p>{todo.content}</p>
     <button onClick={() => { deleteTodo(todo.id) }}>Delete</button>
 </div>
 sudo npm install -g create-react-app
-create-react-app world
 
 <iframe src={this.state.iframe_url} width="400" height="400" align="right">
 src={item.right.path.to.propery}

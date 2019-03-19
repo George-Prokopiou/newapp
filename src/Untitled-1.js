@@ -7,9 +7,7 @@ class App extends Component
         super();
         this.state = {
             data: null,
-            iframe_url: '',
-            iframe_url: targetVideo.right.path.to.videoURL,
-            targetVideo: videoId.data.filter
+            iframe_url: ''
         }
     }
 
@@ -24,10 +22,9 @@ class App extends Component
             .then(response => response.json())
             .then(data =>
             {
-                this.updateState({
+                this.setState({
                     data: data.items,
                     iframe_url: 'https://www.youtube.com/embed/' + data.items[0].id.videoId,
-                    iframe_url: targetVideo.right.path.to.videoURL
                 });
             });
     }
@@ -38,7 +35,6 @@ class App extends Component
     }
     render()
     {
-        let targetVideo = this.state.data.filter;
         let me = this;
         let photos = <p>Wait...Fetching data.</p>;
         if (this.state.data !== null)
@@ -47,7 +43,7 @@ class App extends Component
             photos = this.state.data.map(function(item)
             {
                 return (
-                    <div key={item.id.videoId} onClick={(iframe_url: targetVideo.right.path.to.videoURL) => me.handleClick(item.id.videoId)}>
+                    <div key={item.id.videoId} onClick={() => me.handleClick(item.id.videoId)}>
                         <img src={item.snippet.thumbnails.default.url} alt="" />
                     </div>
                 );
@@ -64,4 +60,3 @@ class App extends Component
 }
 
 export default App;
-
